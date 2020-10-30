@@ -31,8 +31,8 @@ class DoctorsController extends Controller
     public function create(Request $req, Doctors $doctors)
     {
         $id = $doctors->create($req->post());
-        
-        Mail::to('gabrielsilveira.web@gmail.com')->send(new NewDoctor($req->post()));
+
+        Mail::to('mahira@grupoplanmark.com.br')->send(new NewDoctor($req->post()));
 
         return ['id' => $id];
     }
