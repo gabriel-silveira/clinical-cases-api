@@ -33,7 +33,8 @@ class Doctors extends Model
     }
 
     public function create($data) {
-
+        return ['teste'];
+        /*
         $query = "INSERT INTO doctors
                     (name, email, password, phone, crm, specialty, region, acceptance)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
@@ -53,7 +54,7 @@ class Doctors extends Model
             if ($this->createConflicts($doctorId, $data['conflicts'])) {
                 return $doctorId;
             }
-        }
+        }*/
     }
 
     public function createConflicts($doctorId, $conflicts) {

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewDoctor;
 use App\Models\Doctors;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class DoctorsController extends Controller
 {
@@ -29,6 +31,8 @@ class DoctorsController extends Controller
     public function create(Request $req, Doctors $doctors)
     {
         $id = $doctors->create($req->post());
+        
+        Mail::to('gabrielsilveira.web@gmail.com')->send(new NewDoctor($req->post()));
 
         return ['id' => $id];
     }
